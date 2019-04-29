@@ -16,8 +16,9 @@ public class SpaceInvadersTest {
 		    "...............\n" + 
 		    "...............\n" + 
 		    "...............\n" + 
-		    "...............\n" , spaceinvaders.toString());
+		    "...............\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	        }
+	   
 	   
 	   @Test
 		public void test_unNouveauVaisseauEstCorrectementPositionneDansEspaceJeu() {
@@ -33,6 +34,6 @@ public class SpaceInvadersTest {
 			"...............\n" + 
 			"...............\n" + 
 			"...............\n" + 
-			".......V.......\n" , spaceinvaders.toString());
+			".......V.......\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 		}
 }
