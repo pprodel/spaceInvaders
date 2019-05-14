@@ -3,10 +3,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.junit.Before;
+import fr.unilim.iut.spaceinvaders.utils.*;
 
 import fr.unilim.iut.spaceinvaders.utils.HorsEspaceJeuException;
 public class SpaceInvadersTest {
-	 
+
 	   @Test
 	   public void test_AuDebut_JeuSpaceInvaderEstVide() {
 		    SpaceInvaders spaceinvaders = new SpaceInvaders(15, 10);
@@ -102,6 +103,8 @@ public class SpaceInvadersTest {
 			"...............\n" + 
 			"........V......\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 		}
+	   
+	   
 	   @Test
 		public void test_VaisseauImmobile_DeplacerVaisseauVersLaDroite() {
 			
@@ -121,6 +124,8 @@ public class SpaceInvadersTest {
 			"...............\n" + 
 			"..............V\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 		}
+	   
+	   
 	   @Test
 		public void test_VaisseauAvance_DeplacerVaisseauVersLaGauche() {
 			spaceinvaders.positionnerUnNouveauVaisseau(1,1,7,9);
@@ -169,5 +174,21 @@ public class SpaceInvadersTest {
 			"...............\n" + 
 			".......VVV.....\n" + 
 			".......VVV.....\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+		}
+	   
+	   @Test
+		public void test_UnNouveauVaisseauPositionneDansEspaceJeuMaisAvecDimensionTropGrande_DoitLeverUneExceptionDeDebordement() {
+			
+			try {
+				spaceinvaders.positionnerUnNouveauVaisseau(9,2,7,9);
+				fail("Dépassement du vaisseau à droite en raison de sa longueur trop importante : devrait déclencher une exception DebordementEspaceJeuException");
+			} catch (final DebordementEspaceJeuException e) {
+			}
+			try {
+				spaceinvaders.positionnerUnNouveauVaisseau(3,4,7,1);
+				fail("Dépassement du vaisseau vers le haut en raison de sa hauteur trop importante : devrait déclencher une exception DebordementEspaceJeuException");
+			} catch (final DebordementEspaceJeuException e) {
+			}
+				
 		}
 }
