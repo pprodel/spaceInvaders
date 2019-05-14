@@ -66,16 +66,20 @@ public class SpaceInvaders {
    private boolean estDansEspaceJeu(int x, int y) {
 	   return (((x >= 0) && (x < longueur)) && ((y >= 0) && (y < hauteur)));
    }
+   
    public void deplacerVaisseauVersLaDroite() {
 		if (vaisseau.abscisseLaPlusADroite() < (longueur - 1))
 			vaisseau.seDeplacerVersLaDroite();
 	}
    
    public void deplacerVaisseauVersLaGauche() {
-       if (vaisseau.abscisseLaPlusAGauche()< (longueur-1)) vaisseau.seDeplacerVersLaGauche();
+       if (vaisseau.abscisseLaPlusAGauche()> (longueur-longueur)) vaisseau.seDeplacerVersLaGauche();
 	}
-   public void deplacerVaisseauImmobileVersLaGauche() {
-       if (vaisseau.abscisseLaPlusAGauche()> (longueur-1)) vaisseau.seDeplacerVersLaGauche();
+ 
+   public void positionnerUnNouveauVaisseau(Dimension dimension, Position position) {
+		positionnerUnNouveauVaisseau(dimension.longueur(), dimension.hauteur(),
+												position.abscisse(), position.ordonnee());
+
 	}
 }
 
