@@ -87,8 +87,7 @@ public class SpaceInvadersTest {
 	  
 	   
 	   @Test
-		public void test_VaisseauImmobile_DeplacerVaisseauVersLaDroite() {
-			
+		public void test_VaisseauImmobile_DeplacerVaisseauVersLaDroite() {			
 			spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,2),new Position(12,9));
 			spaceinvaders.deplacerVaisseauVersLaDroite();
 			assertEquals("" + 
@@ -101,7 +100,7 @@ public class SpaceInvadersTest {
 			"...............\n" + 
 			"...............\n" + 
 			"............VVV\n" + 
-			" VVV\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+			"............VVV\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 		}
 	   
 	   @Test
@@ -170,8 +169,7 @@ public class SpaceInvadersTest {
 				spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,4),new Position(7,1));
 				fail("Dépassement du vaisseau vers le haut en raison de sa hauteur trop importante : devrait déclencher une exception DebordementEspaceJeuException");
 			} catch (final DebordementEspaceJeuException e) {
-			}
-				
+			}				
 		}
 	   
 	   @Test
