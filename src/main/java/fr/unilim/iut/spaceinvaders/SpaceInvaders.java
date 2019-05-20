@@ -1,8 +1,9 @@
 package fr.unilim.iut.spaceinvaders;
 
+import fr.unilim.iut.spaceinvaders.moteurjeu.*;
 import fr.unilim.iut.spaceinvaders.utils.*;
 
-public class SpaceInvaders {
+public class SpaceInvaders implements Jeu{
 
     private static final char MARQUE_FIN_LIGNE = '\n';
 	private static final char MARQUE_VIDE = '.';
@@ -45,11 +46,12 @@ public class SpaceInvaders {
 	{
 		return this.aUnVaisseau() && vaisseau.occupeLaPosition(x, y);
 	}
-	private boolean aUnVaisseau() {
+	
+	public boolean aUnVaisseau() {
 		return vaisseau!=null;
 	}
 	
-
+	
 	
 
    private boolean estDansEspaceJeu(int x, int y) {
@@ -97,5 +99,27 @@ public class SpaceInvaders {
 		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
 		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, Constante.VAISSEAU_VITESSE);
 	 }
+   
+   public Vaisseau recupererVaisseau() {
+		return this.vaisseau;
+	}
+   
+   public void evoluer(Commande commandeUser) {
+
+		if (commandeUser.gauche) {
+			deplacerVaisseauVersLaGauche();
+		}
+
+		if (commandeUser.droite) {
+			deplacerVaisseauVersLaDroite();
+		}
+
+	}
+
+	public boolean etreFini() {
+		return false;
+
+	}
+   
 }
 

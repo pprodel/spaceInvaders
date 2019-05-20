@@ -1,22 +1,23 @@
 package fr.unilim.iut.spaceinvaders;
+import fr.unilim.iut.spaceinvaders.moteurjeu.MoteurGraphique;
+import fr.unilim.iut.spaceinvaders.utils.*;
 import monJeu.DessinMonJeu;
 import monJeu.MonJeu;
-import moteurJeu.MoteurGraphique;
 
 /**
  * lancement du moteur avec le jeu
  */
+
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		// creation du jeu particulier et de son afficheur
-		MonJeu jeu = new MonJeu();
-		DessinMonJeu aff = new DessinMonJeu(jeu);
+		SpaceInvaders jeu = new SpaceInvaders(Constante.ESPACEJEU_LONGUEUR, Constante.ESPACEJEU_HAUTEUR);
+		jeu.initialiserJeu();
+		DessinSpaceInvaders afficheur = new DessinSpaceInvaders(jeu);
 
-		// classe qui lance le moteur de jeu generique
-		MoteurGraphique moteur = new MoteurGraphique(jeu, aff);
-		moteur.lancerJeu(400,400);
+		MoteurGraphique moteur = new MoteurGraphique(jeu, afficheur);
+		moteur.lancerJeu(Constante.ESPACEJEU_LONGUEUR, Constante.ESPACEJEU_HAUTEUR);
 	}
 
 }

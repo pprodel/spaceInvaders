@@ -1,7 +1,7 @@
 package monJeu;
 
-import moteurJeu.Commande;
-import moteurJeu.Jeu;
+import fr.unilim.iut.spaceinvaders.moteurjeu.Commande;
+import fr.unilim.iut.spaceinvaders.moteurjeu.Jeu;
 
 /**
  * classe qui contient les donnees du jeu. Pour le moment, il ne possede qu'un

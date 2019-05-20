@@ -1,6 +1,6 @@
 package monJeu;
 
-import moteurJeu.Commande;
+import fr.unilim.iut.spaceinvaders.moteurjeu.Commande;
 
 /**
  * la classe correspondant au Personnage

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import moteurJeu.DessinJeu;
+import fr.unilim.iut.spaceinvaders.moteurjeu.DessinJeu;
 
 /**
  * un afficheur graphique associe au JeuTest fourni
