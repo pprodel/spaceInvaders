@@ -314,4 +314,40 @@ public class SpaceInvadersTest {
 	       ".....VVVVVVV...\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	   }
 	   
+	   @Test
+		public void test_Envahisseur_Positionner_VersLaDroite() {			
+		    spaceinvaders.positionnerUnNouveauEnvahisseur(new Dimension(1,1),new Position(12,9), 1);
+			assertEquals("" + 
+			"..............E\n" + 
+			"...............\n" +
+			"...............\n" + 
+			"...............\n" + 
+			"...............\n" + 
+			"...............\n" + 
+			"...............\n" + 
+			"...............\n" + 
+			"...............\n" + 
+			"...............\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+		}
+	   @Test
+	    public void test_EnvahisseurAvanceAutomatiquement_ApresDebut() {
+
+		   spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(1,1),new Position(5,9), 2);
+		   spaceinvaders.tirerUnMissile(new Dimension(3,2),2);
+
+		   spaceinvaders.deplacerMissile();
+		   
+	       assertEquals("" + 
+	       "...............\n" + 
+	       "...............\n" +
+	       "...............\n" + 
+	       "...............\n" + 
+	       ".......MMM.....\n" + 
+	       ".......MMM.....\n" + 
+	       "...............\n" + 
+	       "...............\n" + 
+	       ".....VVVVVVV...\n" + 
+	       ".....VVVVVVV...\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+	   }
+	   
 }
