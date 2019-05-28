@@ -35,7 +35,7 @@ public class DessinSpaceInvaders implements DessinJeu {
 				vaisseau.dimension.hauteur());
 
 	}
-	
+
 	private void dessinerUnMissile(Missile missile, BufferedImage im) {
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 

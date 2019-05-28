@@ -21,7 +21,6 @@ public class Envahisseur extends Sprite {
 
 	public void setSensDeDeplacement(String sensDeDeplacement) {
 		this.sensDeDeplacement = sensDeDeplacement;
-		
 	}
 
 	
