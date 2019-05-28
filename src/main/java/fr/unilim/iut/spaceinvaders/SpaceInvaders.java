@@ -113,6 +113,9 @@ public class SpaceInvaders implements Jeu{
 		Position positionVaisseau = new Position(this.longueur/2,this.hauteur-1);
 		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
 		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, Constante.VAISSEAU_VITESSE);
+		Position positionEnvahisseur = new Position(this.longueur/2,this.hauteur/4);
+		Dimension dimensionEnvahisseur = new Dimension(Constante.ENVAHISSEUR_LONGUEUR,Constante.ENVAHISSEUR_HAUTEUR);
+		positionnerUnNouveauEnvahisseur(dimensionEnvahisseur,positionEnvahisseur,Constante.ENVAHISSEUR_VITESSE);
 	}
 
 	public Vaisseau recupererVaisseau() {
@@ -121,6 +124,10 @@ public class SpaceInvaders implements Jeu{
 	public Missile recupererUnMissile()
 	{
 		return this.missile;
+	}
+	public Envahisseur recupererUnEnvahisseur()
+	{
+		return this.envahisseur;
 	}
 	public void evoluer(Commande commandeUser) {
 
@@ -150,14 +157,6 @@ public class SpaceInvaders implements Jeu{
 	public void deplacerEnvahisseur() {
 		if(this.aUnEnvahisseur())
 		{
-			if (envahisseur.getSensDeDeplacement().equals("droite")&&((envahisseur.abscisseLaPlusADroite())<(longueur-1)))
-			{
-				envahisseur.deplacerHorizontalementVers(Direction.DROITE);
-			}
-			if ((envahisseur.getSensDeDeplacement().equals("gauche"))&& (0 < envahisseur.abscisseLaPlusAGauche()))
-			{
-				envahisseur.deplacerHorizontalementVers(Direction.GAUCHE);
-			}
 			if(envahisseur.abscisseLaPlusADroite()==longueur-1)
 			{
 				envahisseur.setSensDeDeplacement("gauche");
@@ -166,14 +165,33 @@ public class SpaceInvaders implements Jeu{
 			{
 				envahisseur.setSensDeDeplacement("droite");
 			}
-
+			if (verificationEnvahisseurSeDeplaceVersLaDroite()&&((envahisseur.abscisseLaPlusADroite())<(longueur-1)))
+			{
+				envahisseur.deplacerHorizontalementVers(Direction.DROITE);
+			}
+			if (verificationEnvahisseurSeDeplaceVersLaGauche()&& (0 <= envahisseur.abscisseLaPlusAGauche()))
+			{
+				envahisseur.deplacerHorizontalementVers(Direction.GAUCHE);
+			}
 		}
 
 	}
 
 
 
-	private boolean aUnEnvahisseur() {
+	private boolean verificationEnvahisseurSeDeplaceVersLaDroite() {
+		return envahisseur.getSensDeDeplacement().equals("droite");
+	}
+
+
+
+	private boolean verificationEnvahisseurSeDeplaceVersLaGauche() {
+		return envahisseur.getSensDeDeplacement().equals("gauche");
+	}
+
+
+
+	public boolean aUnEnvahisseur() {
 		return envahisseur!=null;
 	}
 
@@ -227,5 +245,6 @@ public class SpaceInvaders implements Jeu{
 
 
 
+	
 }
 
